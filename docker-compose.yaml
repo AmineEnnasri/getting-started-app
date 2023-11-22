@@ -1,0 +1,26 @@
+services:
+  demo-app:
+    image: demo-app:latest
+    container_name: demo-app
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: C351!#
+      MYSQL_DB: demo
+
+  mysql:
+    image: mysql:7:0
+    container_name: mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL__ROOT_PASSWORD: C351!#
+      MYSQL_DATABASE: demo
+volumes:
+  mysql-data:
+
